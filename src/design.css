@@ -21,9 +21,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* =============== FLOATING ELEMENTS =============== */
-
-/* Rotating Globe */
+/* Floating Elements */
 .globe {
   position: absolute;
   top: -40px;
@@ -32,12 +30,8 @@ body {
   animation: spinGlobe 16s linear infinite;
   opacity: 0.9;
 }
+@keyframes spinGlobe { 100% { transform: rotate(360deg); } }
 
-@keyframes spinGlobe {
-  100% { transform: rotate(360deg); }
-}
-
-/* Floating Plane */
 .floating-plane {
   position: absolute;
   top: 40px;
@@ -46,183 +40,114 @@ body {
   opacity: 0.85;
   animation: planeFloat 5s ease-in-out infinite alternate;
 }
-
 @keyframes planeFloat {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-18px); }
+  from { transform: translateY(0); }
+  to   { transform: translateY(-18px); }
 }
 
-/* Clouds */
 .cloud {
   position: absolute;
   width: 200px;
   opacity: 0.45;
 }
-
-.cloud1 {
-  top: 160px;
-  left: -200px;
-  animation: cloudMove 30s linear infinite;
-}
-
-.cloud2 {
-  top: 300px;
-  left: -300px;
-  animation: cloudMove 38s linear infinite;
-}
+.cloud1 { top: 160px; left: -200px; animation: cloudMove 30s linear infinite; }
+.cloud2 { top: 300px; left: -300px; animation: cloudMove 38s linear infinite; }
 
 @keyframes cloudMove {
-  0% { transform: translateX(0px); }
-  100% { transform: translateX(1800px); }
+  from { transform: translateX(0); }
+  to   { transform: translateX(1800px); }
 }
 
-/* =============== MAIN CARD =============== */
+/* Main Container */
 .app-container {
   background: #ffffff;
   padding: 40px;
   border-radius: 32px;
   max-width: 900px;
   margin: auto;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
 }
 
-/* TITLE */
+/* Titles */
 .app-title {
   font-size: 48px;
   font-weight: 800;
-  color: #0f172a;
   margin-bottom: 6px;
 }
-
-/* SUBTITLE */
 .app-subtitle {
-  font-size: 18px;
   color: #475569;
   margin-bottom: 30px;
 }
 
-/* FORM */
-.form-row > div {
-  margin-bottom: 20px;
-}
+/* Inputs */
+.form-row > div { margin-bottom: 20px; }
 
 .input-label {
   font-weight: 600;
   font-size: 14px;
   color: #374151;
-  margin-bottom: 6px;
 }
-
 .input-box {
   width: 100%;
   padding: 12px;
   border-radius: 10px;
   border: 1px solid #d1d5db;
   font-size: 15px;
-  transition: 0.2s;
 }
 
-.input-box:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
-}
-
-/* BUTTON */
+/* Button */
 .primary-btn {
   width: 100%;
   padding: 14px;
   font-size: 18px;
   font-weight: 700;
-  border-radius: 999px;
+  border-radius: 18px;
   color: white;
-  border: none;
   background: linear-gradient(135deg, #2563eb, #1e40af);
+  border: none;
   cursor: pointer;
-  transition: 0.2s;
 }
 
-.primary-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
-}
-
-/* OUTPUT BOX */
+/* OUTPUT */
 .output-box {
   margin-top: 28px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  padding: 25px;
-  font-size: 16px;
-  line-height: 1.7;
-  max-height: 420px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 32px;
+  font-size: 18px;
+  line-height: 1.9;
+
+  /* 🔥 NEW: Beautiful premium font */
+  font-family: "Inter", "Poppins", "Segoe UI", sans-serif;
+
+  /* 🔥 NEW: Single-column, neat reading */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+
+  /* 🔥 NEW: Smooth shadow for depth */
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+
+  /* Smooth scroll */
+  max-height: 480px;
   overflow-y: auto;
 }
 
-/* Scrollbar */
-.output-box::-webkit-scrollbar { width: 6px; }
+.output-box::-webkit-scrollbar {
+  width: 8px;
+}
 .output-box::-webkit-scrollbar-thumb {
-  background: #9ca3af;
-  border-radius: 10px;
+  background: #cbd5e1;
+  border-radius: 8px;
+}
+.output-box::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
-/* Loader */
-.loader {
-  animation: spin 1s linear infinite;
-}
 
-@keyframes spin {
-  100% { transform: rotate(360deg); }
-}
-.output-box {
-  margin-top: 28px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  padding: 25px;
+.plain-output {
+  white-space: pre-wrap;
   font-size: 17px;
   line-height: 1.8;
-  white-space: normal !important;
-}
-/* ========== DAY CARDS ========== */
-.day-container {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-.day-card {
-  background: white;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-  border-left: 12px solid #3b82f6;
-  animation: fadeIn 0.6s ease;
-}
-
-.day-title {
-  font-size: 24px;
-  font-weight: 800;
-  margin-bottom: 12px;
   color: #1e293b;
 }
-
-.day-content {
-  font-size: 16px;
-  line-height: 1.7;
-  color: #334155;
-}
-
-/* Colors auto-change for Day 1,2,3… */
-.day-card:nth-child(1) { border-left-color: #3b82f6; }
-.day-card:nth-child(2) { border-left-color: #10b981; }
-.day-card:nth-child(3) { border-left-color: #f59e0b; }
-.day-card:nth-child(4) { border-left-color: #ef4444; }
-.day-card:nth-child(5) { border-left-color: #6366f1; }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0px); }
-}
-
